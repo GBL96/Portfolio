@@ -1,0 +1,390 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Gabriele Albergamo - IT-Generalist</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<!-- Blockiert Suchmaschinen wie Google (Datenschutz) -->
+		<meta name="robots" content="noindex, nofollow" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		
+		<style>
+			/* Globaler Hintergrund: Fliessender Übergang von Dunkelblau zu Schwarz */
+			body, html {
+				background: linear-gradient(to bottom, #0a1128 0%, #000000 100%) !important;
+				color: #ffffff;
+				font-size: 17px; /* Grundschrift für bessere Lesbarkeit leicht erhöht */
+				line-height: 1.6;
+			}
+
+			/* Überschriften und Textfarben für maximalen Kontrast und angenehmeres Lesen anpassen */
+			h1, h2, h3, h4, h5, h6 {
+				color: #ffffff !important;
+				letter-spacing: 0.5px;
+			}
+			p, li {
+				color: #e2e8f0; /* Helleres, augenschonenderes Grau für exzellenten Kontrast auf Schwarz */
+			}
+
+			/* Hintergrund der HTML5 UP Artikel-Wrapper anpassen */
+			article.wrapper {
+				background-color: transparent !important;
+				border-top: 1px solid rgba(255, 255, 255, 0.15);
+			}
+
+			/* Custom Styles für das vergrösserte Kompetenz-Drehrad */
+			.wheel-wrapper {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				padding: 7em 0 3em 0; 
+				overflow: visible;
+			}
+			.wheel-container {
+				position: relative;
+				width: 500px; /* Vergrössert von 360px */
+				height: 500px; /* Vergrössert von 360px */
+				border-radius: 50%;
+				border: 8px dashed #2980b9;
+				background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(41, 128, 185, 0.12) 10px, rgba(41, 128, 185, 0.12) 20px);
+				margin: 40px auto;
+				transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+				box-shadow: 0 0 35px rgba(41, 128, 185, 0.3);
+			}
+			.wheel-node {
+				position: absolute;
+				width: 130px; /* Vergrössert von 100px */
+				height: 130px; /* Vergrössert von 100px */
+				border-radius: 50%;
+				background-color: #141b2d;
+				color: #ffffff;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+				font-size: 0.85em; /* Etwas grössere, gut lesbare Schrift */
+				font-weight: bold;
+				cursor: pointer;
+				box-shadow: 0 6px 15px rgba(0,0,0,0.6);
+				transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s, border-color 0.3s;
+				margin-top: -65px; /* Hälfte der neuen Breite/Höhe */
+				margin-left: -65px; /* Hälfte der neuen Breite/Höhe */
+				padding: 10px;
+				line-height: 1.3;
+				border: 3px solid #4fb3d9;
+				z-index: 3;
+			}
+			.wheel-node:hover {
+				background-color: #1f293d;
+				transform: scale(1.1);
+				border-color: #ffffff;
+			}
+			.wheel-node.active {
+				background-color: #4fb3d9; 
+				color: #000000;
+				border-color: #ffffff;
+			}
+			.wheel-details {
+				margin-top: 4em;
+				padding: 2em;
+				background: rgba(16, 22, 36, 0.95);
+				border: 1px solid rgba(79, 179, 217, 0.3);
+				border-radius: 10px;
+				box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+				width: 100%;
+				max-width: 700px;
+				text-align: center;
+				min-height: 130px;
+			}
+			.wheel-details h3 {
+				margin-bottom: 0.5em;
+				color: #4fb3d9 !important;
+				font-size: 1.25em;
+			}
+			.wheel-details p {
+				margin-bottom: 0;
+				font-size: 1.05em; /* Angenehm lesbare Grösse */
+				line-height: 1.6;
+				color: #f1f5f9; /* Sehr hoher Kontrast */
+			}
+			
+			/* Anpassung für Lebenslauf-Karten im Dark Mode mit verbessertem Kontrast */
+			.cv-box {
+				text-align: left;
+				padding: 1.8em;
+				height: 100%;
+				background: rgba(16, 22, 36, 0.85) !important;
+				border: 1px solid rgba(255, 255, 255, 0.15);
+				border-radius: 10px;
+				box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+			}
+			.cv-box h3 { color: #ffffff !important; font-size: 1.2em; margin-bottom: 0.3em; }
+			.cv-box .date { font-weight: bold; color: #5bc0de; margin-bottom: 1.2em; display: flex; align-items: center; gap: 10px; font-size: 0.95em; }
+			.cv-box .date img { width: 18px; height: 18px; object-fit: contain; }
+			.cv-box ul { padding-left: 1.2em; margin-bottom: 0; font-size: 0.95em;}
+			.cv-box li { margin-bottom: 0.5em; color: #e2e8f0; }
+
+			/* Zentrierung für den Contact-/Footer-Bereich */
+			#contact .container {
+				text-align: center;
+			}
+			#contact .social {
+				display: flex;
+				justify-content: center;
+				list-style: none;
+				padding: 0;
+				gap: 20px;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Nav -->
+			<nav id="nav">
+				<ul class="container">
+					<li><a href="#top">Start</a></li>
+					<li><a href="#skills">Kompetenzen</a></li>
+					<li><a href="#cv">Lebenslauf</a></li>
+					<li><a href="#contact">Kontakt</a></li>
+				</ul>
+			</nav>
+
+		<!-- Home -->
+			<article id="top" class="wrapper style1">
+				<div class="container">
+					<div class="row">
+						<div class="col-4 col-5-large col-12-medium">
+							<!-- Profilbild -->
+							<span class="image fit"><img src="images/gbl_portrait.jpg" alt="Gabriele Albergamo" /></span>
+						</div>
+						<div class="col-8 col-7-large col-12-medium">
+							<header>
+								<h1><strong>Gabriele Albergamo</strong></h1>
+							</header>
+							<p>Mit mir gewinnen Sie einen flexiblen, kommunikativen und <strong>für die IT-Welt brennenden Mitarbeiter</strong>. Als IT-Generalist schaffe ich Lösungen, die funktionieren – von der Infrastruktur über Cloud-Dienste bis zum direkten Kundenkontakt.</p>
+							<a href="#skills" class="button large scrolly">Meine Kompetenzen entdecken</a>
+						</div>
+					</div>
+				</div>
+			</article>
+
+		<!-- Skills (Drehrad) -->
+			<article id="skills" class="wrapper style2">
+				<div class="container">
+					<header>
+						<h2>Fachliche Kompetenzen</h2>
+						<p>Klicken Sie auf ein Element im LAN-Rad, um die Details einzusehen.</p>
+					</header>
+					
+					<div class="wheel-wrapper">
+						<div id="skills-wheel" class="wheel-container"></div>
+						<div class="wheel-details">
+							<h3 id="skill-title">Wähle einen Bereich</h3>
+							<p id="skill-desc">Klicke auf einen der Punkte im Rad, um mehr über meine technischen Fähigkeiten zu erfahren.</p>
+						</div>
+					</div>
+					
+					<footer>
+						<a href="#cv" class="button large scrolly">Meinen Werdegang ansehen</a>
+					</footer>
+				</div>
+			</article>
+
+		<!-- CV / Portfolio -->
+			<article id="cv" class="wrapper style3">
+				<div class="container">
+					<header>
+						<h2>Berufliche Tätigkeiten</h2>
+					</header>
+					<div class="row">
+						<div class="col-6 col-12-medium">
+							<section class="box style1 cv-box">
+								<h3>IT-Generalist</h3>
+								<span class="date"><img src="https://www.inthenet.ch/favicon.ico" alt="InTheNet" /> 05/2024 – Aktuell | InTheNet AG, Bern</span>
+								<ul>
+									<li>RMM & Endpoint Management (NinjaOne)</li>
+									<li>Zentrale Verantwortung für das Patch Management</li>
+									<li>1st- bis 3rd-Level-Support für KMU-Kunden</li>
+									<li>Prozessoptimierungen & Projektmanagement</li>
+									<li>Virtualisierung (Proxmox VE, Docker, Portainer)</li>
+								</ul>
+							</section>
+						</div>
+						<div class="col-6 col-12-medium">
+							<section class="box style1 cv-box">
+								<h3>Operator Operations</h3>
+								<span class="date"><img src="https://www.selecta.com/favicon.ico" alt="Selecta" /> 01/2023 – 05/2024 | Selecta AG, Kirchberg</span>
+								<ul>
+									<li>Einsatz‐ und Routenplanung (29 Mitarbeitende)</li>
+									<li>Drehscheibenfunktion & Technische Disposition</li>
+									<li>Sicherstellung der täglichen Auftragserledigung</li>
+								</ul>
+							</section>
+						</div>
+						<div class="col-6 col-12-medium">
+							<section class="box style1 cv-box">
+								<h3>Deskside & Support</h3>
+								<span class="date"><img src="https://www.computacenter.com/favicon.ico" alt="Computacenter" /> 05/2021 – 12/2022 | Computacenter AG, Dietikon</span>
+								<ul>
+									<li>Hardware & Softwareinstallationen (HP & Lenovo)</li>
+									<li>1. / 2. Level Support für Twint AG & die Mobiliar</li>
+									<li>IT-Springereinsätze zur Störungsbehebung</li>
+								</ul>
+							</section>
+						</div>
+						<div class="col-6 col-12-medium">
+							<section class="box style1 cv-box">
+								<h3>Logistik / Paketzustellung</h3>
+								<span class="date"><img src="https://www.post.ch/favicon.ico" alt="Die Post" /> 09/2019 – 12/2020 | Die Post</span>
+								<ul>
+									<li>Paketzustellung & Logistik</li>
+									<li>Sorgfältige Tourenabwicklung</li>
+									<li>Zuverlässiger Kundendienst vor Ort</li>
+								</ul>
+							</section>
+						</div>
+						<div class="col-6 col-12-medium">
+							<section class="box style1 cv-box">
+								<h3>Kundenberatung Consumer Electronics</h3>
+								<span class="date"><img src="https://www.migros.ch/favicon.ico" alt="Melectronics" /> 08/2016 – 06/2019 | Melectronics</span>
+								<ul>
+									<li>Kundenberatung Consumer Electronics</li>
+									<li>Warenbewirtschaftung & Präsentation</li>
+									<li>Verkauf & Serviceleistungen</li>
+								</ul>
+							</section>
+						</div>
+					</div>
+					
+					<header style="margin-top: 3em;">
+						<h2>Aus- und Weiterbildungen</h2>
+					</header>
+					<div class="row">
+						<div class="col-4 col-6-medium col-12-small">
+							<section class="box style1 cv-box">
+								<p><strong>ITIL® 4 Foundation Praxis</strong><br>Digicomp (12/2025)</p>
+							</section>
+						</div>
+						<div class="col-4 col-6-medium col-12-small">
+							<section class="box style1 cv-box">
+								<p><strong>M365 Fundamentals</strong><br>Digicomp (01/2025)</p>
+							</section>
+						</div>
+						<div class="col-4 col-6-medium col-12-small">
+							<section class="box style1 cv-box">
+								<p><strong>Powershell Einführung</strong><br>Digicomp (12/2024)</p>
+							</section>
+						</div>
+						<div class="col-4 col-6-medium col-12-small">
+							<section class="box style1 cv-box">
+								<p><strong>Certified Technician</strong><br>HP (11/2021)</p>
+							</section>
+						</div>
+						<div class="col-4 col-6-medium col-12-small">
+							<section class="box style1 cv-box">
+								<p><strong>Marketingfachausbildung</strong><br>SMI (03/2019 – 04/2021)</p>
+							</section>
+						</div>
+						<div class="col-4 col-6-medium col-12-small">
+							<section class="box style1 cv-box">
+								<p><strong>Detailhandelsfachmann EFZ</strong><br>Melectronics (08/2013 – 08/2016)</p>
+							</section>
+						</div>
+					</div>
+					
+					<footer>
+						<a href="#contact" class="button large scrolly">Kontakt</a>
+					</footer>
+				</div>
+			</article>
+
+		<!-- Contact / Footer -->
+			<article id="contact" class="wrapper style4">
+				<div class="container medium">
+					<div class="row">
+						<div class="col-12">
+							<h3>Mich finden auf ...</h3>
+							<ul class="social">
+								<!-- LinkedIn Link -->
+								<li><a href="https://www.linkedin.com/in/gabriele-albergamo-3a71bb208" target="_blank" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+								<!-- E-Mail Link -->
+								<li><a href="mailto:gabriele@albergamo.ch" class="icon solid fa-envelope"><span class="label">E-Mail</span></a></li>
+							</ul>
+							<hr />
+						</div>
+					</div>
+					<footer>
+						<ul id="copyright">
+							<li>&copy; Gabriele Albergamo. All rights reserved.</li>
+						</ul>
+					</footer>
+				</div>
+			</article>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+			<!-- Script für das interaktive Kompetenz-Drehrad -->
+			<script>
+				document.addEventListener('DOMContentLoaded', () => {
+					const skills = [
+						{ title: 'Endpoint Mgmt', desc: 'NinjaOne Administration, Patch- & Asset-Management, Monitoring, Ticketing, Windows 10/11' },
+						{ title: 'System & Cloud', desc: 'Windows Server, Active Directory (GPO, DNS, DHCP), Microsoft 365 Admin, Nextcloud hosting' },
+						{ title: 'Virtualisierung', desc: 'Proxmox VE (VMs & LXC Container), Docker, Docker Compose, Portainer, Homelab' },
+						{ title: 'Scripting', desc: 'PowerShell Troubleshooting, Deployment-Skripte, Software-Rollouts, Automatisierung von Prozessen' },
+						{ title: 'Netzwerk & Sec', desc: 'TCP/IP, VLAN, WLAN (Unifi), VPN (Netbird), Firewalls (Fortinet), Endpoint Security (Trendmicro & Bitdefender)' },
+						{ title: 'Backup & VoIP', desc: 'Acronis, Synology, Backup-Monitoring & Restore-Strategien, STARFACE Telefonanlagen' }
+					];
+
+					const wheel = document.getElementById('skills-wheel');
+					const titleEl = document.getElementById('skill-title');
+					const descEl = document.getElementById('skill-desc');
+					const nodes = [];
+					
+					const radius = 210; // Angepasst an den grösseren Container (500px)
+					const centerX = 250; // Hälfte von 500px
+					const centerY = 250; // Hälfte von 500px
+
+					skills.forEach((skill, index) => {
+						const angleDeg = (index / skills.length) * 360;
+						const angleRad = angleDeg * (Math.PI / 180);
+						const x = centerX + radius * Math.cos(angleRad);
+						const y = centerY + radius * Math.sin(angleRad);
+
+						const node = document.createElement('div');
+						node.className = 'wheel-node';
+						node.style.left = `${x}px`;
+						node.style.top = `${y}px`;
+						node.innerText = skill.title;
+
+						node.addEventListener('click', () => {
+							nodes.forEach(n => n.classList.remove('active'));
+							node.classList.add('active');
+
+							let rotation = 90 - angleDeg;
+							wheel.style.transform = `rotate(${rotation}deg)`;
+							
+							nodes.forEach(n => {
+								n.style.transform = `rotate(${-rotation}deg)`;
+							});
+
+							titleEl.innerText = skill.title;
+							descEl.innerText = skill.desc;
+						});
+
+						nodes.push(node);
+						wheel.appendChild(node);
+					});
+
+					setTimeout(() => {
+						if(nodes.length > 0) nodes[0].click();
+					}, 500);
+				});
+			</script>
+	</body>
+</html>
